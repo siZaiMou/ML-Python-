@@ -1,7 +1,8 @@
 import numpy as np
 from utils.features import prepare_for_training
 
-#线性回归类
+
+# 线性回归,批量梯度下降
 
 class LinearRegression:
     # 初始化函数,对data进行预处理 data为二位数组即每个样本的输入值(x) labels为每个样本的y
@@ -24,7 +25,7 @@ class LinearRegression:
         # shape为行和列,shepe[1]为列数(每个样本有多少xi)，即特征值θ的个数
         num_features = self.data.shape[1]
         # 构建一个θ列向量
-        self.theta = np.zeros((num_features, 1))
+        self.theta = np.random.randn(num_features, 1)
 
     # 训练函数，alpha学习率(步长),num_iterations迭代次数,执行梯度下降
     def train(self, alpha, num_iterations=500):
@@ -63,7 +64,7 @@ class LinearRegression:
         cost = (1 / 2) * np.dot(delta.T, delta)  # 计算损失值,cost是内积,cost类型为numpy.ndarray
         return cost[0][0]  # 返回每次cost的数值
 
-    #训练后得到测试(预测)数据的损失值
+    # 训练后得到测试(预测)数据的损失值
     def get_cost(self, data, labels):
         data_processed = prepare_for_training(data, self.polynomial_degree, self.sinusoid_degree, self.normalize_data)[
             0]
