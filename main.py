@@ -1,3 +1,4 @@
+import numpy as np
 # This is a sample Python script.
 
 # Press Shift+F10 to execute it or replace it with your code.
@@ -12,8 +13,8 @@ def print_hi(name):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    arr1 = np.array([1, 2, 3])
-    arr2 = np.ones((2,3))
-    print(arr2.T)
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    arr = np.array([[1], [1], [2],[2]])
+    arr1 = arr[arr==1].reshape(2,)
+    arr2 = arr[arr==2].reshape(1,)
+    print(arr1.shape,arr2.shape)
+    # See PyCharm help at https://www.jetbrains.com/help/pycharm/
