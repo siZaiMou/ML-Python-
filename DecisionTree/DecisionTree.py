@@ -38,7 +38,7 @@ class DecisionTree:
                 classCount[vote] = 0;
             classCount[vote] += 1
         sorted = sorted(classCount.items(), key=operator.itemgetter(1), reverse=True)  # 得到出现次数最多的key
-        return classCount[0][0]
+        return sorted[0][0]
 
     # 计算最好特征
     def chooseBestFeatureToSplit(self, dataset):

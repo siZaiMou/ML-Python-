@@ -48,7 +48,7 @@ class LinearRegression:
         delta = prediction - self.labels
         # theta也为列向量
         theta = self.theta
-        # np.dot(delta.T,self.data)得到多个样本的预测值(此时为一列),即公式中的delta*xj(xj为data一列)
+        # np.dot(delta.T,self.data)得到多个样本的预测值(此时为一列),即公式中的∑(h(Xj)-yj)*xij(xj为data一列)
         self.theta = theta - alpha * (1 / num_examples) * (np.dot(delta.T, self.data)).T  # 乘法计算完再次转置后得到列向量
 
     # 预测函数(概率密度函数中关于x和θ的函数)静态方法

@@ -11,7 +11,7 @@ class KMeans:
         num_examples = self.data.shape[0]
         closest_centroids_ids = np.empty((num_examples, 1))
         for _ in range(max_iterations):
-            closest_centroids_ids = self.centroids_find_closest(centroids)  # 得到当前每个样本点到k个中心点的距离,找到最近的
+            closest_centroids_ids = self.centroids_find_closest(centroids)  # 得到当前每个样本点到k个中心点的距离,找到最近的中心点(每个样本属于的簇)
             centroids = self.centroids_compute(closest_centroids_ids)  # 更新中心点
         return centroids,closest_centroids_ids
 

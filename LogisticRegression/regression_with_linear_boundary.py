@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from LogisticRegression import LogisticRegression
 
-# 鸢尾花数据集分类
+# 鸢尾花数据集分类 线性决策边界
 
 # 读入并准备数据
 data = pd.read_csv('data/iris.csv')

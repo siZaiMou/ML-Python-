@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import math
 from LogisticRegression import LogisticRegression
 
+# 非线性决策边界
 data = pd.read_csv('data/microchips-tests.csv')
 # 类别标签
 validities = [0, 1]
@@ -42,12 +43,12 @@ plt.xlabel('Gradient Step')
 plt.ylabel('Cost')
 plt.legend()
 plt.show()
-#预测
+# 预测
 y_train_predictions = lgr.predict(x_train)
-precision = np.sum(y_train_predictions==y_train)/y_train.shape[0]*100
+precision = np.sum(y_train_predictions == y_train) / y_train.shape[0] * 100
 print(precision)
 
-#绘制决策边界(非线性)
+# 绘制决策边界(非线性)
 num_examples = x_train.shape[0]
 samples = 150
 x_min = np.min(x_train[:, 0])
@@ -67,7 +68,7 @@ positives = (y_train == 1).flatten()
 negatives = (y_train == 0).flatten()
 plt.scatter(x_train[negatives, 0], x_train[negatives, 1], label='0')
 plt.scatter(x_train[positives, 0], x_train[positives, 1], label='1')
-plt.contour(X, Y, Z) #分类结果0,1之间的等高线
+plt.contour(X, Y, Z)  # 分类结果0,1之间的等高线
 plt.xlabel('param_1')
 plt.ylabel('param_2')
 plt.title('Microchips Tests')
